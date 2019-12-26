@@ -8,17 +8,18 @@
 
 import UIKit
 
-class BannerCell: UITableViewCell {
+class BannerCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    var banner: SubBannerItem?{
+        didSet{
+            imageView.image = UIImage(named: banner?.image ?? "")
+        }
     }
     
 }
